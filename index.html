@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+
+
+        function estructurar() {
+            fetch("/estructurar?esquema="+ document.getElementById('esquema').value, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+        }
+    
+        function crearConexion() {
+            fetch("/crearConexion?host=" + document.getElementById('host').value +"&esquema="+ document.getElementById('esquema').value +"&user=" + document.getElementById('usuario').value + "&password=" + document.getElementById('contrasena').value
+                , {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    }
+                })
+            
+        };
+        function generarABM() {
+            fetch("/generarABM?host=" + document.getElementById('host').value +"&esquema="+ document.getElementById('esquema').value +"&user=" + document.getElementById('usuario').value + "&password=" + document.getElementById('contrasena').value
+            , {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            
+        };
+        function comprimir() {
+            fetch("/comprimir?esquema="+ document.getElementById('esquema').value, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+        
+        };
+    
+        function downloadZip() {
+            window.open( `/downloadZip?esquema=${document.getElementById('esquema').value}` , "Descargando" , "width=120,height=300,scrollbars=NO");
+         
+        };
+
+        function finalizarProceso() {
+            fetch("/finalizarProceso?esquema="+ document.getElementById('esquema').value, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+         
+        };
+
+        
+        function crearTableUsuarios() {
+            fetch("/crearTableUsuarios?esquema="+ document.getElementById('esquema').value, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+         
+        };
+    
+    </script>
+    
+</head>
+
+<body>
+    Pasos para crear sus ABM <br>
+    <form id="form">
+        <h3>Crear Sistema</h3>
+
+        <label id="esquemaLabel" for="esquema">Esquema</label> <br>
+        <input type="text" id="esquema" name="esquema" value="" required><br>
+   
+
+        <label id="userLabel" for="username">Username</label> <br>
+        <input type="text" id="usuario" name="usuario" value="" required><br>
+
+        <label id="hostLabel" for="host">Host</label> <br>
+
+        <input type="text" id="host" name="host" value="" required> <br>
+
+
+        <label id="passLabel" for="pass">Password</label> <br>
+        <input type="password" id="contrasena" name="contrasena" value="" required> <br>
+
+
+        <input type="button" value="estructurar" onclick="estructurar()" /> <br>
+        <input  type="button" value="crearConexion" onclick="crearConexion()" /> <br>
+        <input  type="button" value="crearTableUsuarios" onclick="crearTableUsuarios()" /> <br>
+        
+        <input  type="button" value="generarABM" onclick="generarABM()" /> <br>
+        <input  type="button" value="comprimir" onclick="comprimir()" /> <br>
+        <input type="button" value="downloadZip" onclick="downloadZip()" /> <br>
+        <input type="button" value="finalizarProceso" onclick="finalizarProceso()" /> <br>
+     
+        
+        </form>
+
+
+    Recordar la tabla usuarios es obligatoria <br>
+
+</body>
+
+
+</html>
